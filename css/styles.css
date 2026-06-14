@@ -1,0 +1,150 @@
+:root {
+    --bg-dark-netflix: #141414;
+    --card-bg: #181818;
+    --primary-red: #dc3545;
+    --primary-red-hover: #b21f2d;
+    --transition-smooth: all 0.3s ease-in-out;
+}
+
+body {
+    background-color: var(--bg-dark-netflix) !important;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-red);
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    /* Efecto traslúcido moderno */
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    transition: var(--transition-smooth);
+}
+
+.navbar-brand {
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
+}
+
+.nav-link {
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 2px;
+    left: 50%;
+    background-color: var(--primary-red);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+
+.carousel-item {
+    position: relative;
+}
+
+
+.carousel-caption {
+    z-index: 10;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Ajuste de opacidad en botones secundarios */
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+
+.movie-card {
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto Zoom y Brillo al pasar el cursor (Efecto Streaming) */
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+    border-color: var(--primary-red) !important;
+}
+
+.movie-card img {
+    transition: var(--transition-smooth);
+    filter: brightness(0.9);
+}
+
+.movie-card:hover img {
+    filter: brightness(1.1);
+}
+
+.movie-card .card-body {
+    background-color: var(--card-bg);
+}
+
+
+
+#planes .card {
+    transition: var(--transition-smooth);
+}
+
+#planes .border-danger {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.15);
+}
+
+#planes .card:hover {
+    transform: translateY(-5px);
+}
+
+
+.modal-content {
+    background-color: #181818 !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.ratio-169 {
+    --bs-aspect-ratio: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+
+.btn-close-white {
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+}
+
+.btn-close-white:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
