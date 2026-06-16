@@ -26,11 +26,10 @@ El objetivo principal de este desarrollo es poner en práctica conocimientos ava
 
 
 > **Vista Principal (Hero)**
-> ![Vista Principal](img/cap1.png)
+> !![Vista Principal](img copy/cap1-copia.png)
 
 > **Catálogo y Modal de Tráiler**
-> ![Vista Modal](img/modal-trailer.png)
-
+> ![Vista Modal](img copy/modal-trailer.png)
 ## 6. Integrantes del Grupo
 Este proyecto fue desarrollado por el **Grupo N°1 X**:
 *   Darwin Cabezas
