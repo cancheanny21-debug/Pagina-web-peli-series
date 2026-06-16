@@ -1,532 +1,198 @@
 :root {
-    --bg-cosmic-dark: #070612;
-    --card-glass-bg: rgba(18, 17, 36, 0.65);
-    --border-glass: rgba(255, 255, 255, 0.08);
-    --primary-neon-purple: #a855f7;
-    --primary-neon-cyan: #06b6d4;
-    --accent-orange: #ff8400;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --transition-premium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    --font-heading: 'Syne', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    /* Paleta solicitada */
+    --color-negro: #020205;
+    --color-azul-marino: #0a1128;
+    --color-morado: #8a2be2;
+    --color-rojo-fuego: #ff0000;
+    --color-celeste: #00d2ff;
+    --color-naranja: #ff6200;
 
+    /* Auxiliares */
+    --glass-bg: rgba(10, 17, 40, 0.7);
+    --text-white: #ffffff;
+    --text-muted: #b0b0b0;
+    --transition: all 0.4s ease;
 }
 
-/* Base Body Style with Animated Nebula Backdrop */
 body {
-    background-color: var(--bg-cosmic-dark) !important;
-    color: var(--text-primary) !important;
-    font-family: var(--font-body);
+    background: radial-gradient(circle at top, var(--color-azul-marino), var(--color-negro)) no-repeat;
+    background-attachment: fixed;
+    color: var(--text-white) !important;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     overflow-x: hidden;
-    position: relative;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-        radial-gradient(circle at 30% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 50% 40%, rgba(249, 115, 22, 0.06) 0%, transparent 35%);
-    z-index: -2;
-    animation: nebulaMove 25s ease-in-out infinite alternate;
-}
-
-@keyframes nebulaMove {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    100% {
-        transform: rotate(8deg) scale(1.1);
-    }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-cosmic-dark);
+    background: var(--color-negro);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(168, 85, 247, 0.3);
-    border-radius: 20px;
-    border: 2px solid var(--bg-cosmic-dark);
+    background: linear-gradient(var(--color-morado), var(--color-celeste));
+    border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-neon-cyan);
-}
-
-/* 1. FLOATING NAVIGATION BAR (GLASS DOCK) */
+/* Navbar Estilo Premium */
 .navbar {
-    margin: 15px auto;
-    width: 92%;
-    max-width: 1280px;
-    border-radius: 40px;
-    background: rgba(10, 9, 21, 0.7) !important;
-    backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid var(--border-glass);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    transition: var(--transition-premium);
-    z-index: 1050;
-    padding: 10px 24px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    transition: var(--transition);
 }
 
 .navbar-brand {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, var(--primary-neon-purple), var(--primary-neon-cyan));
+    color: var(--color-rojo-fuego) !important;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
 
+.nav-link:hover {
+    color: var(--color-celeste) !important;
+    text-shadow: 0 0 8px var(--color-celeste);
+}
+
+/* Titulo MovieFlix (Hero Section) */
+.MovieFlix {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fff 30%, var(--color-celeste));
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
-    font-size: 1.6rem !important;
+    filter: drop-shadow(4px 4px 0px var(--color-rojo-fuego));
+    margin-bottom: 20px;
 }
 
-.nav-link {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary) !important;
-    padding: 8px 18px !important;
-    border-radius: 20px;
-    transition: var(--transition-premium);
-    position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--text-primary) !important;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.nav-link::after {
-    display: none;
-}
-
-/* Search bar styling */
-.form-control {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid var(--border-glass) !important;
-    border-radius: 20px;
-    color: var(--text-primary) !important;
-    padding-left: 18px;
-    transition: var(--transition-premium);
-}
-
-.form-control:focus {
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25) !important;
-    border-color: var(--primary-neon-cyan) !important;
-}
-
-.btn-outline-danger {
-    color: var(--primary-neon-cyan) !important;
-    border-color: var(--primary-neon-cyan) !important;
-    background: transparent !important;
-    border-radius: 20px;
-    transition: var(--transition-premium);
-}
-
-.btn-outline-danger:hover {
-    color: var(--bg-cosmic-dark) !important;
-    background: var(--primary-neon-cyan) !important;
-    box-shadow: 0 0 15px var(--primary-neon-cyan);
-    transform: scale(1.05);
-}
-
-/* 2. HERO / BANNER SECTION */
-#heroCarousel {
-    margin-top: 0 !important;
-    padding-top: 100px;
-}
-
-.carousel-item {
-    height: 75vh !important;
-    border-radius: 32px;
-    overflow: hidden;
-    margin: 0 20px;
-    width: calc(100% - 40px);
-    border: 1px solid var(--border-glass);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-}
-
-.carousel-caption {
-    background: linear-gradient(to right, rgba(7, 6, 18, 0.9) 20%, rgba(7, 6, 18, 0.4) 60%, transparent 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0 8% !important;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    text-shadow: none;
-}
-
-.carousel-caption h1 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 3.8rem;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #ffffff 40%, var(--text-secondary) 100%);
-
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 15px;
-}
-
-.carousel-caption p.lead {
-    font-size: 1.25rem;
-    max-width: 550px;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-}
-
-/* Primary Action Buttons */
+/* Botones Personalizados */
 .btn-danger {
-    background: linear-gradient(135deg, var(--primary-neon-purple), var(--accent-orange)) !important;
+    background: linear-gradient(45deg, var(--color-rojo-fuego), var(--color-naranja)) !important;
     border: none !important;
-    border-radius: 30px;
-    color: #fff !important;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 12px 30px !important;
-    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
-    transition: var(--transition-premium);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    transition: var(--transition);
 }
 
 .btn-danger:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 98, 0, 0.6);
 }
 
 .btn-outline-light {
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 30px;
-    padding: 12px 30px !important;
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(10px);
-    font-weight: 600;
-    transition: var(--transition-premium);
+    border: 2px solid var(--color-celeste) !important;
+    color: var(--color-celeste) !important;
+    background: transparent !important;
 }
 
 .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    transform: translateY(-3px);
+    background: var(--color-celeste) !important;
+    color: var(--color-negro) !important;
 }
 
-/* Section Header Custom Style */
-h2 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: var(--text-primary) !important;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 35px !important;
+/* Carousel y Hero */
+.carousel-item {
+    height: 70vh;
 }
 
-h2::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary-neon-cyan), var(--primary-neon-purple));
-    border-radius: 2px;
+.carousel-caption {
+    z-index: 10;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* 3. PREMIUM ASYMMETRICAL MOVIE CARDS */
+/* Tarjetas de Películas */
 .movie-card {
-    background: var(--card-glass-bg) !important;
-    border: 1px solid var(--border-glass) !important;
-    border-radius: 24px 6px 24px 6px !important;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(12px);
-    transition: var(--transition-premium);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: var(--color-azul-marino) !important;
+    border: 1px solid rgba(0, 210, 255, 0.2) !important;
+    border-radius: 15px !important;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-morado) !important;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
 }
 
 .movie-card img {
-    border-radius: 20px 4px 0 0;
-    transition: var(--transition-premium);
-    aspect-ratio: 2/3;
-    object-fit: cover;
-}
-
-.movie-card .card-body {
-    background: transparent !important;
-    padding: 20px !important;
-    border-top: 1px solid var(--border-glass);
-}
-
-.movie-card .card-title {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-    transition: var(--transition-premium);
-}
-
-.movie-card .card-text {
-    font-size: 0.85rem;
-    color: var(--primary-neon-cyan) !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
-/* Movie Card Hover State */
-.movie-card:hover {
-    transform: translateY(-12px) rotate(1deg);
-    border-color: rgba(168, 85, 247, 0.4) !important;
-    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25), 0 0 2px rgba(6, 182, 212, 0.5);
+    border-radius: 15px 15px 0 0;
+    filter: grayscale(20%);
+    transition: var(--transition);
 }
 
 .movie-card:hover img {
-    filter: brightness(1.1) contrast(1.05);
-    transform: scale(1.05);
+    filter: grayscale(0%);
 }
 
-.movie-card:hover .card-title {
-    color: var(--primary-neon-cyan);
+.card-title {
+    color: var(--color-celeste);
+    font-weight: bold;
 }
 
-/* 4. PLANS SECTION (GLASS CRYSTALS) */
+/* Scrollbar horizontal para las secciones */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-morado);
+    border-radius: 10px;
+}
+
+/* Sección de Planes */
 #planes .card {
-    background: var(--card-glass-bg) !important;
-    border: 1px solid var(--border-glass) !important;
-    border-radius: 30px !important;
-    backdrop-filter: blur(15px);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    transition: var(--transition-premium);
-}
-
-#planes .card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 60%);
-    pointer-events: none;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
 }
 
 #planes .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+    background: rgba(138, 43, 226, 0.1) !important;
+    border-color: var(--color-morado) !important;
 }
 
-/* Standard/Recommended Plan */
 #planes .border-danger {
-    border: 1.5px solid rgba(168, 85, 247, 0.5) !important;
-    transform: scale(1.04);
-    background: rgba(22, 16, 45, 0.7) !important;
-    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+    border: 2px solid var(--color-rojo-fuego) !important;
+    transform: scale(1.05);
 }
 
-#planes .border-danger:hover {
-    transform: scale(1.06) translateY(-10px);
-    box-shadow: 0 25px 50px rgba(168, 85, 247, 0.35);
-    border-color: var(--primary-neon-cyan) !important;
-}
-
-#planes .badge {
-    background: linear-gradient(135deg, var(--primary-neon-purple), var(--accent-orange)) !important;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-#planes h3 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.8rem;
-    color: var(--text-primary);
-}
-
-#planes h4 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-}
-
-#planes .btn-outline-danger {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    color: var(--text-primary) !important;
-}
-
-#planes .btn-outline-danger:hover {
-    background: linear-gradient(135deg, var(--primary-neon-purple), var(--primary-neon-cyan)) !important;
-    border-color: transparent !important;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-}
-
-/* 5. CONTACT / REGISTRATION (CYBER PANEL) */
+/* Contacto / Newsletter */
 #contacto {
-    background: rgba(13, 11, 28, 0.7) !important;
-    border: 1px solid var(--border-glass) !important;
-    border-radius: 30px !important;
-    padding: 50px !important;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    position: relative;
+    background: linear-gradient(135deg, var(--color-azul-marino), var(--color-negro)) !important;
+    border: 1px solid var(--color-morado) !important;
 }
 
-#contacto::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
-    pointer-events: none;
+.form-control {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid var(--color-celeste) !important;
+    color: white !important;
 }
 
-#contacto h3 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 2.2rem;
+.form-control::placeholder {
+    color: var(--text-muted);
 }
 
-#contacto .form-control {
-    border-radius: 30px 0 0 30px;
-    padding: 15px 24px;
-    height: auto;
-}
-
-#contacto .btn-danger {
-    border-radius: 0 30px 30px 0;
-    padding: 15px 35px !important;
-}
-
-/* 6. MODAL INTERACTIVO */
+/* Modal */
 .modal-content {
-    background: rgba(12, 10, 26, 0.85) !important;
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 30px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 2px rgba(168, 85, 247, 0.4);
+    background: var(--color-azul-marino) !important;
+    border: 1px solid var(--color-celeste) !important;
 }
 
-.modal-header {
-    border-bottom: 1px solid var(--border-glass) !important;
-    padding: 24px 30px !important;
-}
-
-.modal-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.5rem;
-    background: linear-gradient(135deg, #fff, var(--text-secondary));
-
-    -webkit-text-fill-color: transparent;
-}
-
-.modal-body {
-    padding: 30px !important;
-}
-
-.ratio-169 {
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border-glass);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.btn-close-white {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 50%;
-    transition: var(--transition-premium);
-}
-
-.btn-close-white:hover {
-    background-color: var(--primary-neon-cyan);
-    transform: rotate(90deg);
-}
-
-/* Footer Style */
+/* Footer */
 footer {
-    background: transparent !important;
-    border-top: 1px solid var(--border-glass) !important;
-    padding: 40px 20px !important;
-    font-size: 0.9rem;
+    background: var(--color-negro) !important;
+    border-top: 1px solid var(--color-azul-marino);
 }
 
-footer p {
-    color: var(--text-secondary) !important;
-}
-
-footer small {
-    color: rgba(255, 255, 255, 0.25) !important;
-}
-
-/* Responsive Custom Adjustments */
 @media (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        padding: 12px 15px !important;
-    }
-
-    #heroCarousel {
-        padding-top: 70px;
+    .MovieFlix {
+        font-size: 3rem;
     }
 
     .carousel-item {
-        height: 60vh !important;
-        margin: 0;
-        width: 100%;
-        border-radius: 0;
-        border: none;
-    }
-
-    .carousel-caption h1 {
-        font-size: 2.2rem;
-    }
-
-    .carousel-caption p.lead {
-        font-size: 1rem;
-    }
-
-    #contacto {
-        padding: 30px !important;
-    }
-
-    #contacto .form-control {
-        border-radius: 30px;
-        margin-bottom: 15px;
-    }
-
-    #contacto .btn-danger {
-        border-radius: 30px;
-        width: 100%;
-    }
-
-    #planes .border-danger {
-        transform: none;
+        height: 50vh;
     }
 }
