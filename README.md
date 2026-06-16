@@ -26,17 +26,17 @@ El objetivo principal de este desarrollo es poner en práctica conocimientos ava
 
 
 > **Vista Principal (Hero)**
-> ![Vista Principal](img/copy/cap1.png)
+> ![Vista Principal](img/cap1.png)
 
 > **Catálogo y Modal de Tráiler**
-> ![Vista Modal](img/copy/modal-trailer.png)
+> ![Vista Modal](img/modal-trailer.png)
 
 ## 6. Integrantes del Grupo
 Este proyecto fue desarrollado por el **Grupo N°1 X**:
-*   Integrante 1
-*   Integrante 2
-*   Integrante 3
-*  
+*   Darwin Cabezas
+*   Anny Canche
+*    Jazmin Colobon
+
 
 ## 7. Conclusiones del Desarrollo
 *   **Escalabilidad:** El uso de una función centralizada en JavaScript para cargar el contenido del modal permite añadir cientos de películas simplemente modificando el HTML o una base de datos, sin replicar código lógico.
