@@ -4,48 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamVerse | Tus Películas y Series Favoritas</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>🎬 MovieFlix</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="bg-dark text-white">
 
-    <!-- 1. NAVBAR Y BANNER PRINCIPAL (HERO) -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top px-3">
             <div class="container-fluid">
-                <a class="navbar-brand text-danger fw-bold fs-3" href="#">STREAMVERSE</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <a class="navbar-brand text-danger fw-bold fs-3" href="#">🎬MOVIEFLIX</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#peliculas">Películas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#series">Series</a></li>
+
                         <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2 bg-dark text-white border-secondary" type="search"
-                            placeholder="Buscar película...">
+                            placeholder="Buscar película..." aria-label="Search">
                         <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
         </nav>
 
-
         <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 56px;">
             <div class="carousel-inner">
                 <div class="carousel-item active"
-                    style="background: linear-gradient(rgba(0,0,0,0.4), rgba(20,20,20,1)), url('https://picsum.photos/1920/800?random=1') no-repeat center/cover; height: 70vh;">
-                    <div class="carousel-caption d-none d-md-block text-start bottom-50">
-                        <h1 class="display-4 fw-bold">El Origen del Caos</h1>
-                        <p class="lead">La película de acción más esperada del año ya está disponible.</p>
-                        <button class="btn btn-danger btn-lg me-2" data-bs-toggle="modal" data-bs-target="#movieModal"
-                            onclick="cargarTrailer('El Origen del Caos', 'Un viaje épico al inicio de todo.')"><i
-                                class="bi bi-play-fill"></i> Reproducir</button>
+                    style="background: linear-gradient(rgba(0,0,0,0.4), rgba(20,20,20,1)), url('img/im1.jpg') no-repeat center/cover; height: 70vh;">
+                    <div class="carousel-caption d-none d-md-block text-start top-50 translate-middle-y">
+                        <h1 class="MovieFlix">Twilight</h1>
+                        <p class="lead">Bella Swan, una adolescente que se muda al lluvioso pueblo de Forks, donde se
+                            enamora de Edward Cullen, un misterioso joven que resulta ser un vampiro inmortal.</p>
+                        <button class="btn btn-danger btn-lg me-2" data-bs-toggle="modal" data-bs-target="#movieModal" i
+                            class="bi bi-play-fill"></i> Reproducir
+                        </button>
                         <button class="btn btn-outline-light btn-lg"><i class="bi bi-info-circle"></i> Más Info</button>
                     </div>
                 </div>
@@ -54,85 +56,149 @@
     </header>
 
     <main class="container my-5">
-        <!-- 2. CATÁLOGO POR CATEGORÍAS -->
-        <section id="peliculas" class="mb-5">
-            <h2 class="mb-4 text-secondary">Tendencias Ahora</h2>
-            <div class="row row-cols-2 row-cols-md-4 g-4">
-                <!-- Película 1 -->
-                <div class="col">
+
+        <section id="peliculas" class="mb-5" style="scroll-margin-top: 80px;">
+            <h2 class="mb-4 text-danger fw-bold fs-4">Recientemente añadidas</h2>
+
+            <div class="d-flex flex-nowrap overflow-x-auto pb-3 custom-scrollbar">
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
                     <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
                         data-bs-target="#movieModal"
-                        onclick="cargarTrailer('Misión Rescate', 'Un grupo de astronautas lucha por sobrevivir en Marte.')">
-                        <img src="https://picsum.photos/400/600?random=10" class="card-img-top" alt="Película">
-                        <div class="card-body">
-                            <h5 class="card-title text-truncate">Misión Rescate</h5>
-                            <p class="card-text text-muted small">Acción / Ciencia Ficción</p>
+                        onclick="cargarTrailer('Diablo', 'Un grupo de astronautas lucha por sobrevivir en Marte.', 'img/p2.jpg', 'CG-LZ82KSLM')">
+                        <img src="img/p2.jpg" class="card-img-top" alt="Diablo">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Diablo</h5>
+                            <p class="card-text text-muted x-small mb-0">Acción / Ciencia Ficción</p>
                         </div>
                     </div>
                 </div>
-                <!-- Película 2 -->
-                <div class="col">
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
                     <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
                         data-bs-target="#movieModal"
-                        onclick="cargarTrailer('La Sombra', 'Un detective descubre un secreto que cambiará la ciudad.')">
-                        <img src="https://picsum.photos/400/600?random=11" class="card-img-top" alt="Película">
-                        <div class="card-body">
-                            <h5 class="card-title text-truncate">La Sombra</h5>
-                            <p class="card-text text-muted small">Suspenso / Drama</p>
+                        onclick="cargarTrailer('The Drama', 'Una pareja, en los días previos a su boda, se enfrenta a una importante crisis cuando una inesperada revelación desbarata lo que uno de ellos creía saber sobre el otro..', 'img/D.p1.jpg', 'pn8-dhxHVX8')">
+                        <img src="img/D.p1.jpg" class="card-img-top" alt="The Drama">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">The Drama</h5>
+                            <p class="card-text text-muted x-small mb-0"> Drama</p>
                         </div>
                     </div>
                 </div>
-                <!-- Película 3 -->
-                <div class="col">
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
                     <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
                         data-bs-target="#movieModal"
-                        onclick="cargarTrailer('Aventura Lunar', 'Una comedia animada para disfrutar en familia.')">
-                        <img src="https://picsum.photos/400/600?random=12" class="card-img-top" alt="Película">
-                        <div class="card-body">
-                            <h5 class="card-title text-truncate">Aventura Lunar</h5>
-                            <p class="card-text text-muted small">Animación / Comedia</p>
+                        onclick="cargarTrailer('Shrek', 'Una comedia animada para disfrutar en familia.', 'img/A.p1.jpg', 'MuUwZD2cb4A')">
+                        <img src="img/A.p1.jpg" class="card-img-top" alt="Shrek">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Shrek</h5>
+                            <p class="card-text text-muted x-small mb-0">Animación / Comedia</p>
                         </div>
                     </div>
                 </div>
-                <!-- Película 4 -->
-                <div class="col">
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
                     <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
                         data-bs-target="#movieModal"
-                        onclick="cargarTrailer('Amor en París', 'Dos extraños se conocen en la ciudad de las luces.')">
-                        <img src="https://picsum.photos/400/600?random=13" class="card-img-top" alt="Película">
-                        <div class="card-body">
-                            <h5 class="card-title text-truncate">Amor en París</h5>
-                            <p class="card-text text-muted small">Romance</p>
+                        onclick="cargarTrailer('La La Land', 'Dos extraños se conocen en la ciudad de las luces.', 'img/R.p1.jpg', 'zBRkZZ6K1YU')">
+                        <img src="img/R.p1.jpg" class="card-img-top" alt="La La Land">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">La La Land</h5>
+                            <p class="card-text text-muted x-small mb-0">Romance</p>
                         </div>
                     </div>
                 </div>
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
+                    <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
+                        data-bs-target="#movieModal"
+                        onclick="cargarTrailer('Misión Imposible', 'Un viaje interplanetario sin retorno.', 'img/p2.jpg', 'cPaEof1KJDg')">
+                        <img src="img/p2.jpg" class="card-img-top" alt="Misión Imposible">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Misión Imposible</h5>
+                            <p class="card-text text-muted x-small mb-0">Ciencia Ficción</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- 3. DETALLE DE PELÍCULA / MODAL INTERACTIVO -->
+        <section id="series" class="mb-5" style="scroll-margin-top: 80px;">
+            <h2 class="mb-4 text-danger fw-bold fs-4">Más populares</h2>
+
+            <div class="d-flex flex-nowrap overflow-x-auto pb-3 custom-scrollbar">
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
+                    <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
+                        data-bs-target="#movieModal"
+                        onclick="cargarTrailer('Dark', 'Una inspectora viaja en el tiempo...', 'img/M.s1.jpg', '14FGjkrrXFk')">
+                        <img src="img/M.s1.jpg" class="card-img-top" alt="Dark">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Dark</h5>
+                            <p class="card-text text-muted x-small mb-0">Misterio / Sci-Fi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
+                    <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
+                        data-bs-target="#movieModal"
+                        onclick="cargarTrailer('Arrow', 'Oliver Queen', 'img/M.a2.jpg', 'nPL9wWWuFqA')">
+                        <img src="img/M.a2.jpg" class="card-img-top" alt="Arrow">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Arrow</h5>
+                            <p class="card-text text-muted x-small mb-0">Thriller / Acción</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
+                    <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
+                        data-bs-target="#movieModal"
+                        onclick="cargarTrailer('Belleza Verdadera', 'Traiciones y luchas de poder...', 'img/k2.jpg', 'BcrykhOgBls')">
+                        <img src="img/k2.jpg" class="card-img-top" alt="Belleza Verdadera">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Belleza Verdadera</h5>
+                            <p class="card-text text-muted x-small mb-0">K-Drama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 me-3 flex-shrink-0">
+                    <div class="card bg-black border-secondary h-100 movie-card" data-bs-toggle="modal"
+                        data-bs-target="#movieModal"
+                        onclick="cargarTrailer('Paradise', 'Nadie está a salvo en el paraíso, ni el presidente.', 'img/A.S2.jpg', 'oZ9tlx6gn1w')">
+                        <img src="img/A.S2.jpg" class="card-img-top" alt="Paradise">
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate small mb-1">Paradise</h5>
+                            <p class="card-text text-muted x-small mb-0">Accion / Fantasía</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content bg-dark border-secondary text-white">
                     <div class="modal-header border-bottom border-secondary">
-                        <h5 class="modal-title" id="modalMovieTitle">Título de la Película</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-shadow="none"
-                            data-bs-dismiss="modal"></button>
+                        <h5 class="modal-title" id="modalMovieTitle">Cargando...</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-center">
-                        <div class="ratio ratio-169 mb-3">
-                            <!-- Video simulado (pueden cambiar el src por un link de youtube embebido) -->
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Trailer"
-                                allowfullscreen></iframe>
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe id="modalMovieVideo" src="" title="Trailer" allowfullscreen></iframe>
                         </div>
-                        <p id="modalMovieDescription" class="text-start">Descripción dinámica cargada con JavaScript.
-                        </p>
+                        <p id="modalMovieDescription" class="text-start">Cargando descripción...</p>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <section id="planes" class="py-5">
+        <section id="planes" class="py-5" style="scroll-margin-top: 80px;">
             <h2 class="text-center mb-5">Elige el Plan Perfecto para Ti</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -169,8 +235,8 @@
             </div>
         </section>
 
-        <!-- 5. FORMULARIO DE REGISTRO Y FOOTER -->
-        <section id="contacto" class="py-5 bg-black rounded-3 p-4 border border-secondary mb-5">
+        <section id="contacto" class="py-5 bg-black rounded-3 p-4 border border-secondary mb-5"
+            style="scroll-margin-top: 80px;">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <h3>¿Listo para empezar a ver?</h3>
@@ -191,10 +257,18 @@
 
     <footer class="bg-black py-4 border-top border-secondary text-center text-muted">
         <p class="mb-1">&copy; 2026 StreamVerse. Proyecto Práctico de Desarrollo Frontend.</p>
-        <small>Desarrollado con HTML, CSS, Bootstrap y JavaScript por el Grupo N° X</small>
+        <small>Desarrollado con HTML, CSS, Bootstrap y JavaScript por el Grupo N°1 :Darwi Cabezas ,Jazmin
+            Colobon</small>
     </footer>
 
 
+
+    <script src="js/main.js"></script>
 </body>
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js></script>
+ 
 </html>
