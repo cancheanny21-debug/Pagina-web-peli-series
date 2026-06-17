@@ -9,6 +9,10 @@ function cargarTrailer(titulo, descripcion, imagen, idYoutube) {
     var modalDesc = document.getElementById('modalMovieDescription');
     if (modalDesc) modalDesc.innerText = descripcion;
 
+    // Cambiar la imagen
+    var modalImage = document.getElementById('modalMovieImage');
+    if (modalImage) modalImage.src = imagen;
+
     // Cambiar el iframe de YouTube
     var iframeVideo = document.getElementById('modalMovieVideo');
     if (iframeVideo) {
@@ -16,13 +20,15 @@ function cargarTrailer(titulo, descripcion, imagen, idYoutube) {
     }
 }
 
-// Limpiar el video al cerrar el modal
+// Limpiar el video y la imagen al cerrar el modal
 document.addEventListener('DOMContentLoaded', function () {
     var miModal = document.getElementById('movieModal');
     if (miModal) {
         miModal.addEventListener('hidden.bs.modal', function () {
             var iframeVideo = document.getElementById('modalMovieVideo');
             if (iframeVideo) iframeVideo.src = "";
+            var modalImage = document.getElementById('modalMovieImage');
+            if (modalImage) modalImage.src = "";
         });
     }
 });
