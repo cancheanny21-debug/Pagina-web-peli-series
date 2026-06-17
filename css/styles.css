@@ -1,198 +1,246 @@
-:root {
-    /* Paleta solicitada */
-    --color-negro: #020205;
-    --color-azul-marino: #0a1128;
-    --color-morado: #8a2be2;
-    --color-rojo-fuego: #ff0000;
-    --color-celeste: #00d2ff;
-    --color-naranja: #ff6200;
-
-    /* Auxiliares */
-    --glass-bg: rgba(10, 17, 40, 0.7);
-    --text-white: #ffffff;
-    --text-muted: #b0b0b0;
-    --transition: all 0.4s ease;
-}
-
+/* Fondo general de la app y tipografía */
 body {
-    background: radial-gradient(circle at top, var(--color-azul-marino), var(--color-negro)) no-repeat;
-    background-attachment: fixed;
-    color: var(--text-white) !important;
+    background-color: #0f1016 !important;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
+    color: #e2e8f0;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--color-negro);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--color-morado), var(--color-celeste));
-    border-radius: 5px;
-}
-
-/* Navbar Estilo Premium */
+/* --- NAVBAR CUSTOM --- */
 .navbar {
-    background: rgba(0, 0, 0, 0.9) !important;
+    background-color: rgba(15, 16, 22, 0.95) !important;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
-    transition: var(--transition);
+    /* Efecto esmerilado moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar-brand {
-    color: var(--color-rojo-fuego) !important;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    letter-spacing: 1px;
+    color: #00f2fe !important;
+    /* Texto principal en Cian */
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
 }
 
-.nav-link:hover {
-    color: var(--color-celeste) !important;
-    text-shadow: 0 0 8px var(--color-celeste);
+.nav-link {
+    color: #a0aec0 !important;
+    transition: color 0.3s ease;
 }
 
-/* Titulo MovieFlix (Hero Section) */
-.MovieFlix {
-    font-size: 5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    background: linear-gradient(to bottom, #fff 30%, var(--color-celeste));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(4px 4px 0px var(--color-rojo-fuego));
-    margin-bottom: 20px;
+.nav-link:hover,
+.nav-link.active {
+    color: #00f2fe !important;
 }
 
-/* Botones Personalizados */
+/* Buscador */
+.form-control {
+    background-color: #171923 !important;
+    border: 1px solid #2d3748 !important;
+    color: #fff !important;
+}
+
+.form-control:focus {
+    border-color: #00f2fe !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 242, 254, 0.25) !important;
+}
+
+/* --- TARJETAS DE PELÍCULAS/SERIES (CARDS) --- */
+/* Forzar que los títulos de las películas y series sean completamente blancos */
+.movie-card .card-title {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    /* Ajuste sutil para que no se vea tosco */
+    margin-bottom: 4px !important;
+}
+
+/* Forzar que el género (ej. Acción / Ciencia Ficción) sea un gris claro legible */
+.movie-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease !important;
+}
+
+/* 2. 🎬 Efecto HOVER para PELÍCULAS (Flota + Brillo Cian) */
+#peliculas .movie-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    /* sube 10 píxeles y crece un 3% */
+    border-color: rgba(0, 242, 254, 0.5) !important;
+    box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2) !important;
+}
+
+/* 3. 📺 Efecto HOVER para SERIES (Flota + Brillo Violeta) */
+#series .movie-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    /* sube 10 píxeles y crece un 3% */
+    border-color: rgba(225, 0, 255, 0.5) !important;
+    box-shadow: 0 15px 30px rgba(225, 0, 255, 0.2) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- BOTONES DINÁMICOS PERSONALIZADOS --- */
+/* Botón Ver Película (Estilo Cian Eléctrico) */
 .btn-danger {
-    background: linear-gradient(45deg, var(--color-rojo-fuego), var(--color-naranja)) !important;
+    background: linear-gradient(135deg, #0072ff, #00f2fe) !important;
     border: none !important;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-    transition: var(--transition);
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    transition: all 0.3s ease !important;
 }
 
 .btn-danger:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 98, 0, 0.6);
+    background: linear-gradient(135deg, #00f2fe, #0072ff) !important;
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
 }
 
-.btn-outline-light {
-    border: 2px solid var(--color-celeste) !important;
-    color: var(--color-celeste) !important;
-    background: transparent !important;
+/* Botón Ver Serie (Estilo Magenta/Violeta Neón) */
+.btn-success {
+    background: linear-gradient(135deg, #7f00ff, #e100ff) !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(225, 0, 255, 0.3);
+    transition: all 0.3s ease !important;
 }
 
-.btn-outline-light:hover {
-    background: var(--color-celeste) !important;
-    color: var(--color-negro) !important;
+.btn-success:hover {
+    background: linear-gradient(135deg, #e100ff, #7f00ff) !important;
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(225, 0, 255, 0.5);
 }
 
-/* Carousel y Hero */
-.carousel-item {
-    height: 70vh;
-}
-
-.carousel-caption {
-    z-index: 10;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-/* Tarjetas de Películas */
-.movie-card {
-    background: var(--color-azul-marino) !important;
-    border: 1px solid rgba(0, 210, 255, 0.2) !important;
-    border-radius: 15px !important;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.movie-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-morado) !important;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-}
-
-.movie-card img {
-    border-radius: 15px 15px 0 0;
-    filter: grayscale(20%);
-    transition: var(--transition);
-}
-
-.movie-card:hover img {
-    filter: grayscale(0%);
-}
-
-.card-title {
-    color: var(--color-celeste);
-    font-weight: bold;
-}
-
-/* Scrollbar horizontal para las secciones */
-.custom-scrollbar::-webkit-scrollbar {
-    height: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--color-morado);
-    border-radius: 10px;
-}
-
-/* Sección de Planes */
 #planes .card {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(10px);
-    transition: var(--transition);
+    background-color: #12131a !important;
+    /* Fondo oscuro unificado */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    padding: 20px !important;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease !important;
 }
 
+/* 2. Forzar que todos los textos internos sean perfectamente legibles (Blancos y Gris Claro) */
+#planes .card h3,
+#planes .card-title {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px;
+}
+
+#planes .card p,
+#planes .card-text {
+    color: #cbd5e1 !important;
+    /* Gris claro plateado de alto contraste */
+    font-size: 0.95rem;
+}
+
+#planes .card h4 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.8rem;
+}
+
+#planes .card h4 span {
+    color: #94a3b8 !important;
+    /* Color gris suave para el '/mes' */
+    font-size: 1rem !important;
+}
+
+/* 3. 🚀 EFECTO HOVER (FLOTAR): Aplica a las tres tarjetas por igual */
 #planes .card:hover {
-    background: rgba(138, 43, 226, 0.1) !important;
-    border-color: var(--color-morado) !important;
+    transform: translateY(-12px) scale(1.02);
+    /* Flota hacia arriba y crece sutilmente */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7) !important;
 }
 
-#planes .border-danger {
-    border: 2px solid var(--color-rojo-fuego) !important;
-    transform: scale(1.05);
+/* --- Variación de color al flotar para los planes Básico y Premium (Laterales) --- */
+#planes .col:max-child .card:hover,
+/* Selector de respaldo */
+#planes .col:first-child .card:hover,
+#planes .col:last-child .card:hover {
+    border-color: #00f2fe !important;
+    /* Brillo cian neón */
+    box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2) !important;
 }
 
-/* Contacto / Newsletter */
+/* 4. Estilo específico para el plan del MEDIO (Estándar / Recomendado) */
+#planes .card.border-danger {
+    border: 2px solid #e100ff !important;
+    /* Borde permanente Violeta Neón */
+    box-shadow: 0 4px 25px rgba(225, 0, 255, 0.15) !important;
+}
+
+#planes .card.border-danger:hover {
+    border-color: #e100ff !important;
+    box-shadow: 0 15px 35px rgba(225, 0, 255, 0.35) !important;
+    /* Brillo violeta más fuerte al pasar el mouse */
+}
+
+/* Ajuste del Badge "Recomendado" */
+#planes .badge {
+    background: linear-gradient(135deg, #7f00ff, #e100ff) !important;
+    padding: 6px 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 5. Estilo para los botones de "Seleccionar" */
+/* Botones laterales (Bordes cian) */
+#planes .btn-outline-danger {
+    color: #00f2fe !important;
+    border: 1px solid #00f2fe !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#planes .btn-outline-danger:hover {
+    background: linear-gradient(135deg, #0072ff, #00f2fe) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+}
+
+/* Botón central (Gradiente completo) */
+#planes .btn-danger {
+    background: linear-gradient(135deg, #0072ff, #00f2fe) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+    transition: all 0.3s ease;
+}
+
+#planes .btn-danger:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+}
+
+/* ==========================================================================
+   SECCIÓN DE CONTACTO (FORMULARIO INFERIOR)
+   ========================================================================== */
 #contacto {
-    background: linear-gradient(135deg, var(--color-azul-marino), var(--color-negro)) !important;
-    border: 1px solid var(--color-morado) !important;
+    background-color: #12131a !important;
+    /* Misma tonalidad que las tarjetas */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.form-control {
-    background: rgba(0, 0, 0, 0.5) !important;
-    border: 1px solid var(--color-celeste) !important;
-    color: white !important;
+#contacto h3 {
+    color: #ffffff !important;
 }
 
-.form-control::placeholder {
-    color: var(--text-muted);
+#contacto .text-muted {
+    color: #94a3b8 !important;
 }
 
-/* Modal */
-.modal-content {
-    background: var(--color-azul-marino) !important;
-    border: 1px solid var(--color-celeste) !important;
+#contacto .form-control {
+    background-color: #0f1016 !important;
+    border: 1px solid #2d3748 !important;
+    color: #ffffff !important;
 }
 
-/* Footer */
-footer {
-    background: var(--color-negro) !important;
-    border-top: 1px solid var(--color-azul-marino);
-}
-
-@media (max-width: 768px) {
-    .MovieFlix {
-        font-size: 3rem;
-    }
-
-    .carousel-item {
-        height: 50vh;
-    }
+#contacto .form-control::placeholder {
+    color: #4a5568 !important;
 }
