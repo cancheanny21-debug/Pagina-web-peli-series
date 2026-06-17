@@ -89,6 +89,7 @@ body {
     transition: all 0.3s ease !important;
 }
 
+
 .btn-danger:hover {
     background: linear-gradient(135deg, #00f2fe, #0072ff) !important;
     transform: scale(1.02);
