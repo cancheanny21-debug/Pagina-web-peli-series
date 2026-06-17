@@ -26,10 +26,10 @@ El objetivo principal de este desarrollo es poner en práctica conocimientos ava
 
 
 > **Vista Principal (Hero)**
-> ![Vista Principal](img%20copy/cat1.png)
+> ![Vista Principal](img%20copy/cat1.jpeg)
 
 > **Catálogo y Modal de Tráiler**
-> ![Vista Modal](img%20copy/cat2.png)
+> ![Vista Modal](img%20copy/cat2.jpeg)
 
 ## 6. Integrantes del Grupo
 Este proyecto fue desarrollado por el **Grupo N°1 X**:
